@@ -1,0 +1,21 @@
+{
+  "name": "simple-client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pb:gen": "./scripts/gen.sh post",
+    "start": "node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.4",
+    "@grpc/proto-loader": "^0.7.13",
+    "google-protobuf": "^3.21.4"
+  },
+  "devDependencies": {
+    "grpc-tools": "^1.12.4"
+  }
+}
