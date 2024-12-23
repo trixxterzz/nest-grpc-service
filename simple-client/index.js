@@ -31,7 +31,7 @@ function createPost(client){
 }
 
 function getPostById(client) {
-    const req = new PostById().setId(120);
+    const req = new PostById().setId(25);
 
     client.getPostById(req, (err, res) => {
         if (err) {
@@ -77,7 +77,7 @@ async function createMultiplePosts(client) {
 }
 
 async function getMultiplePosts(client) {
-    const ids = [{id: 1}, {id: 2}, {id: 29}, {id: 10}];
+    const ids = [{id: 11}, {id: 12}, {id: 13}, {id: 14}];
 
     const call = client.getMultiplePosts();
 
@@ -86,11 +86,14 @@ async function getMultiplePosts(client) {
     for (let i of ids) {
         const req = new PostById().setId(i.id);
         call.write(req);
+        await sleep(1000);
     }
+
+    call.end();
 }
 
 function updatePost(client) {
-    const req = new Post().setId(6).setTitle('Test 6').setContent('Test 6');
+    const req = new Post().setId(25).setTitle('Test 25').setContent('Test 25');
 
     client.updatePost(req, (res, err) => {
         if (err) {
@@ -100,9 +103,9 @@ function updatePost(client) {
 }
 
 function deletePost(client) {
-    const req = new PostById().setId(6);
+    const req = new PostById().setId(25);
 
-    client.updatePost(req, (res, err) => {
+    client.deletePost(req, (res, err) => {
         if (err) {
             return console.log(err);
         }
@@ -117,7 +120,7 @@ function main() {
     // getAllPosts(client);
     // getPostById(client);
     // createMultiplePosts(client);
-    // getMultiplePosts(client);
+    getMultiplePosts(client);
     // updatePost(client);
     // deletePost(client);
 }

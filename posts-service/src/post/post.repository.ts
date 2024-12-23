@@ -36,7 +36,6 @@ export class PostRepository extends Repository<PostEntity> {
   async updatePost(data: Post): Promise<UpdateResult> {
     const { id, title, content } = data;
     const result = await this.update({ id }, { title, content });
-    console.log(result);
     return result;
   }
 
